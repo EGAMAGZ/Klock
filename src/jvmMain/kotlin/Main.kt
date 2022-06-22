@@ -9,24 +9,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.application
-
-@Composable
-@Preview
-fun App() {
-    var text by remember { mutableStateOf("Hello, World!") }
-
-    MaterialTheme {
-        Button(onClick = {
-            text = "Hello, Desktop!"
-        }) {
-            Text(text)
-        }
-    }
-}
+import androidx.compose.ui.window.rememberWindowState
+import ui.window.KlockApp
 
 fun main() = application {
-    Window(onCloseRequest = ::exitApplication) {
-        App()
+    Window(
+        onCloseRequest = ::exitApplication,
+        state = rememberWindowState(placement = WindowPlacement.Maximized),
+        title = "Klock"
+    ) {
+        KlockApp()
     }
 }
