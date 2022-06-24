@@ -18,12 +18,6 @@ fun KlockApp() {
     var text by remember { mutableStateOf("Hello, World!") }
 
     MaterialTheme {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            SimpleCard()
-        }
+        SplashScreen()
     }
 }

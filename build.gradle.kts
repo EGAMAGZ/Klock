@@ -32,6 +32,8 @@ kotlin {
                 api(compose.material)
                 api(compose.ui)
                 api(compose.materialIconsExtended)
+
+                implementation("com.arkivanov.decompose:decompose:0.6.0")
             }
         }
         val jvmTest by getting
