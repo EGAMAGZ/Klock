@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
+import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.runtime.*
@@ -17,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import navigation.AppScreens
 import navigation.NavController
+import ui.theme.KlockTheme
 
 @Composable
 fun SplashScreen(navController: NavController) {
@@ -28,32 +30,35 @@ fun SplashScreen(navController: NavController) {
         )
     )
 
-    LaunchedEffect(key1 = true){
+    LaunchedEffect(key1 = true) {
         startAnimation = true
         delay(2000)
         navController.navigate(AppScreens.MainScreen.route)
     }
-
     SplashContent(alpha = alphaAnimation.value)
 }
 
 @Composable
 fun SplashContent(alpha: Float) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Icon(
-            modifier = Modifier.size(120.dp)
-                .alpha(alpha),
-            imageVector = Icons.Filled.Alarm,
-            contentDescription = "Splash screen Icon"
-        )
+    Surface {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                modifier = Modifier.size(120.dp)
+                    .alpha(alpha),
+                imageVector = Icons.Filled.Alarm,
+                contentDescription = "Splash screen Icon"
+            )
+        }
     }
 }
 
 @Composable
 @Preview
 fun SplashPreview() {
-    SplashContent(alpha = 1f)
+    KlockTheme {
+        SplashContent(alpha = 1f)
+    }
 }
