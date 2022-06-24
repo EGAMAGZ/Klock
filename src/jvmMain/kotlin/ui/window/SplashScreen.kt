@@ -15,9 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
+import navigation.AppScreens
+import navigation.NavController
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(navController: NavController) {
     var startAnimation by remember { mutableStateOf(false) }
     val alphaAnimation = animateFloatAsState(
         targetValue = if (startAnimation) 1f else 0f,
@@ -29,13 +31,14 @@ fun SplashScreen() {
     LaunchedEffect(key1 = true){
         startAnimation = true
         delay(2000)
+        navController.navigate(AppScreens.MainScreen.route)
     }
 
-    Splash(alpha = alphaAnimation.value)
+    SplashContent(alpha = alphaAnimation.value)
 }
 
 @Composable
-fun Splash(alpha: Float) {
+fun SplashContent(alpha: Float) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -52,5 +55,5 @@ fun Splash(alpha: Float) {
 @Composable
 @Preview
 fun SplashPreview() {
-    Splash(alpha = 1f)
+    SplashContent(alpha = 1f)
 }
