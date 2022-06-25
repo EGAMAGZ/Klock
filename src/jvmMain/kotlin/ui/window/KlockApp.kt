@@ -1,13 +1,15 @@
 package ui.window
 
-import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.runtime.*
+import androidx.compose.material.Surface
+import androidx.compose.runtime.Composable
 import navigation.AppNavigation
 import ui.theme.KlockTheme
 
 @Composable
 fun KlockApp() {
     KlockTheme {
-        AppNavigation()
+        Surface {
+            AppNavigation()
+        }
     }
 }

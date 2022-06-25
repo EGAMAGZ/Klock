@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
-import androidx.compose.material.Surface
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.runtime.*
@@ -40,18 +39,16 @@ fun SplashScreen(navController: NavController) {
 
 @Composable
 fun SplashContent(alpha: Float) {
-    Surface {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(
-                modifier = Modifier.size(120.dp)
-                    .alpha(alpha),
-                imageVector = Icons.Filled.Alarm,
-                contentDescription = "Splash screen Icon"
-            )
-        }
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Icon(
+            modifier = Modifier.size(120.dp)
+                .alpha(alpha),
+            imageVector = Icons.Filled.Alarm,
+            contentDescription = "Splash screen Icon"
+        )
     }
 }
 
