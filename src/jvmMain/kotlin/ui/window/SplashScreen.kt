@@ -32,7 +32,7 @@ fun SplashScreen(navController: NavController) {
     LaunchedEffect(key1 = true) {
         startAnimation = true
         delay(2000)
-        navController.navigate(AppScreens.MainScreen.route)
+        navController.navigate(AppScreens.StopWatchScreen.route)
     }
     SplashContent(alpha = alphaAnimation.value)
 }
