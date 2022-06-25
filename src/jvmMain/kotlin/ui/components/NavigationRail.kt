@@ -45,7 +45,8 @@ fun NavigationRailTimeOptions(
                             contentDescription = "${option.label} Icon"
                         )
                     },
-                    label = { Text(option.label) }
+                    label = { Text(option.label) },
+                    alwaysShowLabel = false
                 )
             }
         }

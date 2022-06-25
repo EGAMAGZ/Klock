@@ -2,22 +2,20 @@ package ui.window.stopwatch
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun StopWatchScreen(modifier: Modifier = Modifier) {
     val stopwatch = remember { StopWatch() }
     Box(
         contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         StopWatchDisplay(
             formattedTime = stopwatch.formattedTime,
@@ -29,7 +27,7 @@ fun StopWatchScreen(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun StopWatchDisplay(
+private fun StopWatchDisplay(
     formattedTime: String,
     onStartClick: () -> Unit,
     onPauseClick: () -> Unit,
@@ -43,9 +41,7 @@ fun StopWatchDisplay(
     ) {
         Text(
             text = formattedTime,
-            fontWeight = FontWeight.Bold,
-            fontSize = 30.sp,
-            color = Color.Black
+            style = MaterialTheme.typography.h2
         )
         Spacer(Modifier.height(16.dp))
         Row(
